@@ -13,18 +13,20 @@ br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.
 while True:
     r = br.open('http://pastebin.com/archive')
     soup = BeautifulSoup(r.read())
-    a = soup.find('table', {'class' : 'maintable'}).findAll('tr')[1].td.a
-    title = a.text
-    url = 'http://pastebin.com/raw.php?i=' + a['href'][1:]
-    r = br.open(url)
+    rows = soup.find('table', {'class' : 'maintable'}).findAll('tr')[1:6]
+    for row in rows:
+        a = row.td.a
+        title = a.text
+        url = 'http://pastebin.com/raw.php?i=' + a['href'][1:]
+        r = br.open(url)
 
-    os.system('clear')
-    print title + ' (' + url + ')'
-    print '************************************************************************************************************'
-    lines = r.read().splitlines()
-    for line in lines[:35]:
-        print line
-    print '************************************************************************************************************'
+        os.system('clear')
+        print title + ' (' + url + ')'
+        print '************************************************************************************************************'
+        lines = r.read().splitlines()
+        for line in lines[:35]:
+            print line
+        print '************************************************************************************************************'
 
-    time.sleep(30)
+        time.sleep(12)
 
