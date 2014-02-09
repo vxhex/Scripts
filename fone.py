@@ -4,6 +4,9 @@ try:
     num1 = int(sys.argv[1].translate(None, '-'))
     num2 = int(sys.argv[2].translate(None, '-'))
 
+    if num1 > num2:
+        num1, num2 = num2, num1
+
     for number in range(num1, num2+1):
         phone = str(number)
         print phone[0:3] + '-' + phone[3:6] + '-' + phone[6:10]
