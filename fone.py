@@ -1,13 +1,12 @@
 import sys
 
 try:
-    num1 = sys.argv[1].split('-')
-    num2 = sys.argv[2].split('-')
+    num1 = int(sys.argv[1].translate(None, '-'))
+    num2 = int(sys.argv[2].translate(None, '-'))
 
-    for area in range(int(num1[0]), int(num2[0])+1):
-        for prefix in range(int(num1[1]), int(num2[1])+1):
-            for line in range(int(num1[2]), int(num2[2])+1):
-                print str(area).zfill(3) + '-' + str(prefix).zfill(3) + '-' + str(line).zfill(4)
+    for number in range(num1, num2+1):
+        phone = str(number)
+        print phone[0:3] + '-' + phone[3:6] + '-' + phone[6:10]
 
 except IndexError:
     print "Usage: python " + sys.argv[0] + " START_PHONE END_PHONE"
