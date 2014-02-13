@@ -10,8 +10,8 @@ $(function() {
     while (n2 == n1) {
       n2 = inputs[Math.floor(Math.random() * inputs.length)];
     }
-    var n3 = n2;
+    var swap = n2.value;
     n2.value = n1.value;
-    n1.value = n3.value;
+    n1.value = swap;
   });
 });

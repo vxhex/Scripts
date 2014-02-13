@@ -11,9 +11,9 @@ dojo.addOnLoad(function() {
       while(n2==n1) {
         n2 = arr[Math.floor(Math.random() * arr.length)];
       }
-      var n3 = n2;
+      var swap = n2.value;
       n2.value = n1.value;
-      n1.value = n3.value;
+      n1.value = swap;
     });
   });
 });
