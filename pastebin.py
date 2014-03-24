@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import os
 import time
 
+screen_width = 80
+
 br = Browser()
 br.set_handle_robots(False)
 br.addheaders = [('User-agent', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)')]
@@ -18,11 +20,11 @@ while True:
 
         os.system('clear')
         print title + ' (' + url + ')'
-        print '************************************************************************************************************'
+        print '*' * screen_width
         lines = br.open(url).read().splitlines()
         for line in lines[:35]:
             print line
-        print '************************************************************************************************************'
+        print '*' * screen_width
 
         time.sleep(12)
 
